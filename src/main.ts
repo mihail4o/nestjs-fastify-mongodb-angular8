@@ -12,10 +12,11 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
   app.setGlobalPrefix('/api');
-  // app.useStaticAssets({
-  //   root: join(__dirname, '..', 'client/dist/client'),
-  //   prefix: '/',
-  // });
-  await app.listen(process.env.PORT || 3000);
+  app.useStaticAssets({
+    root: join(__dirname, '..', 'client/dist/client'),
+    prefix: '/',
+  });
+  await app.listen(3000);
+  // await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
